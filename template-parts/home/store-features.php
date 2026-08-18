@@ -1,59 +1,136 @@
 <?php
 /**
- * Template part for displaying Store Features grid (Centered Version)
- * Theme: Ana9a - 100% Arabic Native Blueprint
+ * Template part for displaying Store Features
+ * Theme: Ana9a
  */
-if (!defined('ABSPATH')) exit;
-?>
 
-<section class="bg-brand-white border-y border-brand-gray-100 py-16" dir="rtl">
-    <div class="container-lux mx-auto px-6">
-        
-        <div class="reveal-on-scroll grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8  text-center">
-            
-            <?php
-            // مصفوفة البيانات لتقليل التكرار في الكود (Senior Practice)
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 $features = [
+
     [
-        'icon'  => 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4',
-        'title' => __('توصيل لـ 58 ولاية', 'ana9a'),
-        'desc'  => __('نوصلك لأي ولاية في الجزائر بسرعة وأمان', 'ana9a'),
+        'icon'  => 'M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14',
+        'title' => __( 'Livraison 58 Wilayas', 'ana9a' ),
+        'desc'  => __( 'Livraison rapide et sécurisée partout en Algérie.', 'ana9a' ),
     ],
+
     [
         'icon'  => 'M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z',
-        'title' => __('الدفع عند الاستلام', 'ana9a'),
-        'desc'  => __('تشوف وتجرب، وبعدين تدفع — بلا قلقة', 'ana9a'),
+        'title' => __( 'Paiement à la livraison', 'ana9a' ),
+        'desc'  => __( 'Payez simplement à la réception de votre commande.', 'ana9a' ),
     ],
+
     [
         'icon'  => 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z',
-        'title' => __('أحذية أصلية 100%', 'ana9a'),
-        'desc'  => __('سنيكرات وصنادل وبلايغ — كلها أوريجينال مضمونة', 'ana9a'),
+        'title' => __( 'Qualité premium', 'ana9a' ),
+        'desc'  => __( 'Des produits sélectionnés avec soin.', 'ana9a' ),
     ],
-    [
-        'icon'  => 'M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z',
-        'title' => __('خدمة عملاء 7/7', 'ana9a'),
-        'desc'  => __('عندك سؤال أو مشكل؟ فريقنا دايما حاضر يعاونك', 'ana9a'),
-    ],
-];
 
-            foreach ($features as $f) : ?>
-                <div class="flex flex-col items-center p-6 text-center bg-white border border-brand-gray-100 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:border-brand-gray-200 hover:shadow-xl hover:shadow-brand-black/5 group">
-    
-                 <div class="mb-4 p-4 bg-brand-gray-50 rounded-2xl text-brand-black shadow-inner group-hover:bg-brand-black group-hover:text-brand-white transition-all duration-300">
-                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                         <path stroke-linecap="round" stroke-linejoin="round" d="<?php echo $f['icon']; ?>" />
-                     </svg>
-                 </div>
-             
-                 <div class="space-y-2">
-                     <h3 class="text-sm font-black text-brand-black uppercase tracking-wider"><?php echo $f['title']; ?></h3>
-                     <p class="text-[13px] leading-relaxed text-brand-gray-500 max-w-[200px] mx-auto">
-                         <?php echo $f['desc']; ?>
-                     </p>
-                 </div>
+    [
+        'icon'  => 'M3 18v-6a9 9 0 0118 0v6M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z',
+        'title' => __( 'Service client 7j/7', 'ana9a' ),
+        'desc'  => __( 'Notre équipe est disponible pour vous accompagner.', 'ana9a' ),
+    ],
+
+];
+?>
+
+<section
+    class="border-y border-brand-gray-100 bg-brand-white"
+    dir="ltr"
+    aria-label="<?php esc_attr_e( 'Avantages du service', 'ana9a' ); ?>"
+>
+
+    <div class="container-lux">
+
+        <div class="grid grid-cols-2 lg:grid-cols-4">
+
+            <?php foreach ( $features as $index => $feature ) : ?>
+
+                <div
+                    class="
+                        group
+                        relative
+                        flex flex-col
+                        items-center
+                        text-center
+                        px-5 py-9
+                        md:px-8 md:py-10
+
+                        <?php
+                        echo $index > 0
+                            ? 'border-l border-brand-gray-100'
+                            : '';
+                        ?>
+
+                        transition-colors duration-300
+                        hover:bg-brand-white-soft
+                    "
+                >
+
+                    <!-- Icon -->
+
+                    <div
+                        class="
+                            flex items-center justify-center
+                            w-9 h-9
+                            mb-4
+                            text-brand-primary
+                            transition-transform duration-300
+                            group-hover:-translate-y-0.5
+                        "
+                    >
+
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="<?php echo esc_attr( $feature['icon'] ); ?>"
+                            />
+                        </svg>
+
+                    </div>
+
+
+                    <!-- Content -->
+
+                    <h3
+                        class="
+                            text-[11px] md:text-xs
+                            font-black
+                            uppercase
+                            tracking-[0.08em]
+                            text-brand-primary
+                        "
+                    >
+                        <?php echo esc_html( $feature['title'] ); ?>
+                    </h3>
+
+                    <p
+                        class="
+                            mt-2
+                            max-w-[210px]
+                            text-[10px] md:text-[11px]
+                            leading-relaxed
+                            text-brand-text-muted
+                        "
+                    >
+                        <?php echo esc_html( $feature['desc'] ); ?>
+                    </p>
+
                 </div>
+
             <?php endforeach; ?>
 
         </div>
+
     </div>
+
 </section>

