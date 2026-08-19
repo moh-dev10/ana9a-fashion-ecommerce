@@ -4,58 +4,105 @@
  * Theme: Ana9a (Tailwind v4 Blueprint)
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 get_header(); ?>
 
-<main dir="rtl" class="max-w-[1440px] mx-auto px-6 py-12 md:py-20 animate-fade-in">
-    
-    <header class="mb-16">
-        <span class="text-[11px] font-black tracking-widest uppercase bg-brand-black text-brand-white px-3 py-1 rounded-full">استكشف التشكيلات</span>
-        <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter text-brand-black mt-6">مجموعات الموسم</h1>
+<main dir="ltr" class="max-w-[1440px] mx-auto px-6 py-12 md:py-20">
+
+    <!-- Page Header -->
+    <header class="mb-10 md:mb-14 animate-reveal">
+
+        <span class="text-[11px] font-black tracking-[0.2em] uppercase bg-brand-black text-brand-white px-3 py-1 rounded-full">
+            <?php _e('DÉCOUVREZ NOS COLLECTIONS', 'ana9a'); ?>
+        </span>
+
+        <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter text-brand-black mt-6">
+            <?php _e('ACHETEZ PAR CATÉGORIE', 'ana9a'); ?>
+        </h1>
+
+        <p class="mt-4 text-sm md:text-base text-brand-gray-500 max-w-xl leading-relaxed">
+            <?php _e('Découvrez notre sélection de vêtements, accessoires et pièces incontournables pensées pour accompagner votre style au quotidien.', 'ana9a'); ?>
+        </p>
+
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <?php
-        // إعداد المعايير لجلب تصنيفات المنتجات
-        $terms = get_terms( array(
+
+<!-- Categories -->
+<section>
+
+    <?php
+
+    $terms = get_terms(
+        array(
             'taxonomy'   => 'product_cat',
-            'hide_empty' => false, // إخفاء التصنيفات الفارغة
+            'hide_empty' => true,
+            'parent'     => 0,
             'orderby'    => 'count',
-            'order'      => 'DESC'
-        ) );
+            'order'      => 'DESC',
+            'exclude'    => array(
+                get_option( 'default_product_cat' )
+            ),
+        )
+    );
 
-        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-            foreach ( $terms as $term ) {
-                // الحصول على صورة التصنيف (WooCommerce Category Image)
-                $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
-                $image = $thumbnail_id ? wp_get_attachment_url( $thumbnail_id ) : get_template_directory_uri() . '/assets/images/placeholder.jpg';
-                $link = get_term_link( $term );
-                ?>
-                
-                <div class="group relative overflow-hidden rounded-3xl aspect-[4/5] bg-brand-gray-100">
-                    <img src="<?php echo esc_url( $image ); ?>" 
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
-                         alt="<?php echo esc_attr( $term->name ); ?>">
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-black/80 to-transparent"></div>
-                    
-                    <div class="absolute bottom-0 p-8 w-full">
-                        <h2 class="text-2xl font-black text-white mb-4"><?php echo esc_html( $term->name ); ?></h2>
-                        <a href="<?php echo esc_url( $link ); ?>" 
-                           class="inline-block bg-brand-white text-brand-black px-6 py-3 rounded-xl text-[11px] font-black uppercase tracking-widest hover:bg-brand-gray-200 transition-colors">
-                           تصفح المجموعة
-                        </a>
-                    </div>
-                </div>
-                
+    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
+
+    ?>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
+
+            <?php foreach ( $terms as $term ) : ?>
+
                 <?php
-            }
-        } else {
-            echo '<p class="text-brand-gray-400">لا توجد تصنيفات لعرضها حالياً.</p>';
-        }
-        ?>
 
-    </div>
+                if ( $term->slug === 'uncategorized' ) {
+                    continue;
+                }
+
+                $thumbnail_id = get_term_meta(
+                    $term->term_id,
+                    'thumbnail_id',
+                    true
+                );
+
+                $image = $thumbnail_id
+                    ? wp_get_attachment_image_url( $thumbnail_id, 'large' )
+                    : get_template_directory_uri() . '/assets/img/placeholder.webp';
+
+                $link = get_term_link( $term );
+
+                ?>
+
+<?php
+    get_template_part(
+        'template-parts/woocommerce/category-card',
+        null,
+        [
+            'category' => $term,
+        ]
+    );
+    ?>
+
+            <?php endforeach; ?>
+
+        </div>
+
+    <?php else : ?>
+
+        <p class="text-brand-gray-400">
+            <?php _e(
+                'Aucune catégorie disponible pour le moment.',
+                'ana9a'
+            ); ?>
+        </p>
+
+    <?php endif; ?>
+
+</section>
+
 </main>
 
 <?php get_footer(); ?>

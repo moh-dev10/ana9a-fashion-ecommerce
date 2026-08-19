@@ -39,7 +39,7 @@
         wp_nav_menu([
             'theme_location' => 'primary',
             'container'      => false,
-            'menu_class'     => 'flex flex-col gap-6 text-xl uppercase font-extrabold tracking-[0.1em] list-none m-0 p-0 text-right text-black divide-y divide-neutral-50',
+            'menu_class'     => 'flex flex-col gap-6 text-xl uppercase font-extrabold tracking-[0.1em] list-none m-0 p-0 text-left text-black divide-y divide-neutral-50',
         ]);
         ?>
     </nav>

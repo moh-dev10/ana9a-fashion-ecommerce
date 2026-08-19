@@ -1,91 +1,277 @@
-<section class="relative w-full min-h-[85vh] md:min-h-screen flex items-center overflow-hidden" dir="rtl">
-    
+<?php
+/**
+ * Fashion Hero Section
+ * Theme: Ana9a
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+$shop_url        = wc_get_page_permalink( 'shop' );
+$collections_url = home_url( '/collections/' );
+?>
+
+<section
+    class="relative isolate w-full min-h-[78vh] md:min-h-[88vh] overflow-hidden bg-brand-white"
+    aria-labelledby="hero-title"
+>
+
+    <!-- =====================================================
+         HERO MEDIA
+         ====================================================== -->
+
     <div class="absolute inset-0 z-0">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/hero1.webp')?>"
-             alt="ولد الروجي شوز"
-             fetchpriority="high"
-             loading="eager"
-             decoding="async"
-             width="1920"
-             height="1080"
-             class="w-full h-full object-cover object-center">
-        
-        {{-- موبايل: overlay داكن كامل --}}
-        <!-- احذف الـ div ديال ديسكتوب وخلي overlay واحد لكل الشاشات -->
-<div class="absolute inset-0 bg-brand-black/55"></div>
-        
-        {{-- ديسكتوب: gradient من اليمين --}}
-        <div class="absolute inset-0 hidden md:block bg-gradient-to-l from-brand-white via-brand-black/85 to-brand-white/10"></div>
+
+        <img
+            src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/hero1.webp' ); ?>"
+            alt="<?php echo esc_attr__( 'Nouvelle collection Ana9a', 'ana9a' ); ?>"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            width="1920"
+            height="1080"
+            class="w-full h-full object-cover object-center"
+        >
+
+        <!--
+            Readability layer.
+            Stronger on the content side, transparent towards the image.
+        -->
+        <div
+            class="absolute inset-0
+                   bg-gradient-to-r
+                   from-brand-white/95
+                   via-brand-white/65
+                   to-transparent
+                   md:from-brand-white/90
+                   md:via-brand-white/35
+                   md:to-transparent"
+            aria-hidden="true"
+        ></div>
+
     </div>
 
-    <div class="container-lux relative z-10  w-full px-6 md:px-12 text-right">
-        <div class="max-w-2xl  flex flex-col  space-y-8">
 
-            <header class="space-y-5 ">
+    <!-- =====================================================
+         HERO CONTENT
+         ====================================================== -->
 
-                <div class="flex items-center gap-4 justify-start">
-                    <span class="w-10 h-px bg-brand-black  md:bg-brand-black"></span>
-                    <span class="text-xs uppercase tracking-[0.3em] font-bold text-brand-white md:text-brand-gray-500">
-                        <?php _e('كوليكسيون 2026', 'ana9a'); ?>
+    <div
+        class="container-lux relative z-10 min-h-[78vh] md:min-h-[88vh]
+               flex items-center"
+    >
+
+        <div class="max-w-2xl py-12 md:py-16">
+
+
+            <!-- Eyebrow -->
+
+            <div
+                class="flex items-center gap-4 mb-7
+                       animate-reveal"
+            >
+
+                <span class="w-10 h-px bg-brand-primary"></span>
+
+                <span
+                    class="text-[10px] md:text-[11px]
+                           uppercase
+                           tracking-widest
+                           font-bold
+                           text-brand-text-muted"
+                >
+                    <?php _e( 'Nouvelle collection', 'ana9a' ); ?>
+                </span>
+
+            </div>
+
+
+            <!-- Main Heading -->
+
+            <h1
+                id="hero-title"
+                class="hero-title
+                       font-black
+                       tracking-[-0.06em]
+                       max-w-3xl
+                       text-brand-primary
+                       animate-reveal [animation-delay:120ms]"
+            >
+
+                <?php _e( 'Votre style.', 'ana9a' ); ?>
+
+                <br>
+
+                <span class="text-brand-text-muted/80">
+                    <?php _e( 'Votre signature.', 'ana9a' ); ?>
+                </span>
+
+            </h1>
+
+
+            <!-- Description -->
+
+            <p
+                class="max-w-lg
+                       mt-8
+                       text-sm md:text-base
+                       leading-relaxed
+                       text-brand-text-muted
+                       animate-reveal [animation-delay:240ms]"
+            >
+                <?php
+                 _e(
+                     'Des pièces soigneusement sélectionnées pour affirmer votre style au quotidien.',
+                     'ana9a'
+                 );
+                ?>
+            </p>
+
+
+            <!-- CTA -->
+
+            <div
+                class="flex flex-col sm:flex-row
+                       items-stretch sm:items-center
+                       gap-3
+                       mt-9
+                       animate-reveal [animation-delay:480ms]"
+            >
+
+                <!-- Primary CTA -->
+
+                <a
+                    href="<?php echo esc_url( $shop_url ); ?>"
+                    class="btn-primary group w-full sm:w-auto"
+                >
+
+                    <span>
+                        <?php _e( 'Découvrir la boutique', 'ana9a' ); ?>
                     </span>
-                </div>
 
-                <h1 class="hero-title tracking-tighter animate-reveal leading-[1.05]
-                           text-brand-white md:text-brand-black
-                           text-4xl sm:text-5xl lg:text-7xl">
-                    <?php _e('باسكات، صنادل،', 'ana9a'); ?><br>
-                    <?php _e('بلايغ — كلشي هنا.', 'ana9a'); ?>
-                </h1>
+                    <svg
+                        class="w-4 h-4 ml-3
+                               transition-transform duration-500
+                               group-hover:translate-x-1.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.8"
+                            d="M5 12h14m-6-6 6 6-6 6"
+                        />
+                    </svg>
 
-                <p class="text-sm md:text-base animate-reveal delay-250 leading-relaxed max-w-md
-                          text-brand-white/80 md:text-brand-gray-500">
-                    <?php _e('توصيل لـ 58 ولاية. دفع عند الاستلام. بلا تعقيد.', 'ana9a'); ?>
-                </p>
+                </a>
 
-                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 animate-reveal delay-500 justify-start">
-                    
-                    <a href="<?php echo esc_url( home_url('/shop/') ); ?>" 
-                       class="btn-primary w-full sm:w-auto group inline-flex items-center justify-center rounded-2xl">
-                        <span><?php _e('تسوق الآن', 'ana9a'); ?></span>
-                        <svg class="w-4 h-4 transition-transform duration-500 group-hover:-translate-x-2 me-3" 
-                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m7 7l-7-7 7-7"/>
-                        </svg>
-                    </a>
 
-                    <a href="<?php echo esc_url( home_url('/collections/') ); ?>" 
-                       class="btn-secondary w-full sm:w-auto text-center shadow-none rounded-2xl
-                              border-brand-white/40 text-brand-white md:border-brand-gray-200 md:text-brand-black">
-                        <?php _e('شوف الكوليكسيون', 'ana9a'); ?>
-                    </a>
+                <!-- Secondary CTA -->
 
-                </div>
-            </header>
+                <a
+                    href="<?php echo esc_url( $collections_url ); ?>"
+                    class="btn-secondary w-full sm:w-auto"
+                >
+                    <?php _e( 'Voir les collections', 'ana9a' ); ?>
+                </a>
 
-            <div class="flex items-center gap-6 pt-6 border-t border-brand-white/20 md:border-brand-gray-100 animate-reveal delay-700">
-                <div class="text-center">
-                    <p class="text-2xl font-black text-brand-white md:text-brand-black">58</p>
-                    <p class="text-[10px] uppercase tracking-widest text-brand-white/60 md:text-brand-gray-500">
-                        <?php _e('ولاية', 'ana9a'); ?>
+            </div>
+
+
+            <!-- =================================================
+                 TRUST SIGNALS
+                 ================================================== -->
+
+            <div
+                class="flex flex-wrap items-center
+                       gap-x-6 gap-y-4
+                       mt-10 pt-6
+                       border-t border-brand-primary/10
+                       animate-reveal"
+            >
+
+                <!-- Item -->
+
+                <div>
+
+                    <p class="text-sm font-bold text-brand-primary">
+                        58
                     </p>
-                </div>
-                <div class="w-px h-8 bg-brand-white/20 md:bg-brand-gray-100"></div>
-                <div class="text-center">
-                    <p class="text-2xl font-black text-brand-white md:text-brand-black">100%</p>
-                    <p class="text-[10px] uppercase tracking-widest text-brand-white/60 md:text-brand-gray-500">
-                        <?php _e('دفع عند الاستلام', 'ana9a'); ?>
+
+                    <p
+                        class="mt-1
+                               text-[9px]
+                               uppercase
+                               tracking-widest
+                               text-brand-text-muted"
+                    >
+                        <?php _e( 'Wilayas livrées', 'ana9a' ); ?>
                     </p>
+
                 </div>
-                <div class="w-px h-8 bg-brand-white/20 md:bg-brand-gray-100"></div>
-                <div class="text-center">
-                    <p class="text-2xl font-black text-brand-white md:text-brand-black">+500</p>
-                    <p class="text-[10px] uppercase tracking-widest text-brand-white/60 md:text-brand-gray-500">
-                        <?php _e('زبون راضي', 'ana9a'); ?>
+
+
+                <span
+                    class="w-px h-7 bg-brand-primary/10"
+                    aria-hidden="true"
+                ></span>
+
+
+                <!-- Item -->
+
+                <div>
+
+                    <p class="text-sm font-bold text-brand-primary">
+                        <?php _e( 'Paiement à la livraison', 'ana9a' ); ?>
                     </p>
+
+                    <p
+                        class="mt-1
+                               text-[9px]
+                               uppercase
+                               tracking-widest
+                               text-brand-text-muted"
+                    >
+                        <?php _e( 'Simple & sécurisé', 'ana9a' ); ?>
+                    </p>
+
                 </div>
+
+
+                <span
+                    class="w-px h-7 bg-brand-primary/10"
+                    aria-hidden="true"
+                ></span>
+
+
+                <!-- Item -->
+
+                <div>
+
+                    <p class="text-sm font-bold text-brand-primary">
+                        09h–21h
+                    </p>
+
+                    <p
+                        class="mt-1
+                               text-[9px]
+                               uppercase
+                               tracking-widest
+                               text-brand-text-muted"
+                    >
+                        <?php _e( 'Service client', 'ana9a' ); ?>
+                    </p>
+
+                </div>
+
             </div>
 
         </div>
+
     </div>
 
 </section>

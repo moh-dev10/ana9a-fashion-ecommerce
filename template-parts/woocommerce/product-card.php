@@ -11,9 +11,9 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 
-<article <?php wc_product_class( 'group relative flex flex-col gap-3 bg-brand-white product-card-item in-carousel-target', $product ); ?>>
+<article <?php wc_product_class( 'group relative flex flex-col pb-4 gap-3 bg-brand-white/20  product-card-item rounded-brand ', $product ); ?>>
     
-    <div class="animate-scroll-reveal relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-brand-gray-100 border border-brand-gray-100">
+    <div class="animate-scroll-reveal relative aspect-[3/4] w-full  overflow-hidden  bg-brand-gray-100 border border-brand-gray-100 rounded-brand">
         <a href="<?php the_permalink(); ?>" class="block w-full h-full">
             <?php 
             echo woocommerce_get_product_thumbnail('full', [
@@ -24,18 +24,18 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
         <?php if ( $product->is_on_sale() ) : ?>
             <span class="absolute top-3 right-3 bg-brand-black text-brand-white text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full shadow-sm z-10 [.in-carousel_&]:hidden">
-                <?php _e('تخفيض', 'ana9a'); ?>
+                <?php _e('Promo', 'ana9a'); ?>
             </span>
         <?php endif; ?>
 
         <div class="absolute inset-x-0 bottom-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out hidden md:block z-10">
-            <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="block w-full text-center bg-brand-white/90 backdrop-blur-md text-brand-black py-3 rounded-xl text-[11px] font-black tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-colors shadow-sm">
-                + <?php _e('معاينة المنتج', 'ana9a'); ?>
+            <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="block w-full text-center bg-brand-white/90 backdrop-blur-md text-brand-black py-3 rounded-brand text-[11px] font-black tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-colors shadow-sm">
+                + <?php _e('Voir le produit', 'ana9a'); ?>
             </a>
         </div>
     </div>
 
-    <div class="flex flex-col gap-1.5 px-1 *:in-[.in-carousel]:gap-1 in-[.in-carousel]:text-center in-[.in-carousel]:items-center">
+    <div class="flex flex-col gap-1.5 px-4 rounded-t-2xl *:in-[.in-carousel]:gap-1 text-center items-center">
         
        <?php 
        $categories = get_the_terms( $product->get_id(), 'product_cat' );
@@ -46,14 +46,14 @@ if ( empty( $product ) || ! $product->is_visible() ) {
        }
        ?>
 
-        <h2 class="text-sm font-medium text-brand-gray-800 group-hover:text-brand-black transition-colors leading-tight tracking-tight in-[.in-carousel]:text-[13px] in-[.in-carousel]:font-bold in-[.in-carousel]:text-center in-[.in-carousel]:tracking-widest">
+        <h2 class="reveal-on-scroll text-sm font-medium text-brand-gray-800 group-hover:text-brand-black transition-colors leading-tight tracking-tight in-[.in-carousel]:text-[13px] in-[.in-carousel]:font-bold in-[.in-carousel]:text-center in-[.in-carousel]:tracking-widest">
             <a href="<?php the_permalink(); ?>">
                 <?php the_title(); ?>
             </a>
         </h2>
         
-        <div class="flex items-center justify-between mt-0.5">
-            <div dir="rtl" class="text-sm font-black text-brand-black flex items-center gap-2 [&_del]:border-none [&_del]:text-brand-gray-500 [&_del]:font-normal [&_ins]:no-underline [&_span]:no-underline [.in-carousel_&_del]:hidden in-[.in-carousel]:text-[16px] in-[.in-carousel_&]:justify-center in-[.in-carousel_&]:w-full">
+        <div class="reveal-on-scroll flex items-center justify-between mt-0.5">
+            <div  class="text-sm font-black text-brand-black flex items-center gap-2 [&_del]:border-none [&_del]:text-brand-gray-500 [&_del]:font-normal [&_ins]:no-underline [&_span]:no-underline [.in-carousel_&_del]:hidden in-[.in-carousel]:text-[16px] in-[.in-carousel_&]:justify-center in-[.in-carousel_&]:w-full">
                <?php echo $product->get_price_html(); ?>
             </div>
 
