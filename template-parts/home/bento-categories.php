@@ -28,7 +28,7 @@ if ( empty( $product_categories ) || is_wp_error( $product_categories ) ) {
 ?>
 
 <section
-    class="container-lux mx-auto  py-16 md:py-24"
+    class="container-lux mx-auto  py-20 md:py-24"
     dir="ltr"
     aria-labelledby="categories-title"
 >
@@ -55,7 +55,7 @@ if ( empty( $product_categories ) || is_wp_error( $product_categories ) ) {
 
             <h2
                 id="categories-title"
-                class="text-3xl md:text-5xl
+                class="text-3xl md:text-4xl
                        font-black uppercase
                        tracking-[-0.04em]
                        leading-none

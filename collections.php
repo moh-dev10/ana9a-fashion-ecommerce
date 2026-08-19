@@ -31,7 +31,6 @@ get_header(); ?>
 
 
 <!-- Categories -->
-<!-- Categories -->
 <section>
 
     <?php
@@ -77,138 +76,15 @@ get_header(); ?>
 
                 ?>
 
-                <a
-                    href="<?php echo esc_url( $link ); ?>"
-                    class="
-                        group relative block overflow-hidden
-                        aspect-[4/5]
-                        bg-brand-gray-100
-                        rounded-brand
-                        reveal-on-scroll
-                    "
-                >
-
-                    <!-- Image -->
-                    <img
-                        src="<?php echo esc_url( $image ); ?>"
-                        alt="<?php echo esc_attr( $term->name ); ?>"
-                        loading="lazy"
-                        class="
-                            absolute inset-0
-                            w-full h-full
-                            object-cover
-                            transition-transform
-                            duration-700
-                            ease-out
-                            group-hover:scale-105
-                        "
-                    >
-
-                    <!-- Overlay -->
-                    <div
-                        class="
-                            absolute inset-0
-                            bg-gradient-to-t
-                            from-black/70
-                            via-black/10
-                            to-transparent
-                            transition-all
-                            duration-500
-                            group-hover:from-black/80
-                        "
-                    ></div>
-
-
-                    <!-- Content -->
-                    <div class="absolute inset-x-0 bottom-0 p-4 md:p-5">
-
-                        <div class="flex items-end justify-between gap-3">
-
-                            <div>
-
-                                <!-- Count -->
-                                <span
-                                    class="
-                                        block
-                                        mb-1.5
-                                        text-[8px]
-                                        md:text-[10px]
-                                        font-medium
-                                        uppercase
-                                        tracking-[0.14em]
-                                        text-white/70
-                                    "
-                                >
-                                    <?php
-                                    printf(
-                                        _n(
-                                            '%s article',
-                                            '%s articles',
-                                            $term->count,
-                                            'ana9a'
-                                        ),
-                                        number_format_i18n( $term->count )
-                                    );
-                                    ?>
-                                </span>
-
-
-                                <!-- Category Name -->
-                                <h2
-                                    class="
-                                        text-base
-                                        md:text-xl
-                                        
-                                        font-black
-                                        uppercase
-                                        tracking-tighter
-                                        text-white
-                                        leading-tight
-                                        line-clamp-2
-                                    "
-                                >
-                                    <?php echo esc_html( $term->name ); ?>
-                                </h2>
-
-                            </div>
-
-
-                            <!-- Arrow -->
-                            <span
-                                class="
-                                    w-9 h-9
-                                    md:w-10 md:h-10
-                                    rounded-full
-                                    bg-white
-                                    text-black
-                                    flex items-center justify-center
-                                    flex-shrink-0
-                                    transition-all
-                                    duration-300
-                                    group-hover:translate-x-1
-                                    group-hover:bg-brand-black
-                                    group-hover:text-white
-                                "
-                            >
-
-                                <svg
-                                    class="w-4 h-4"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.8"
-                                >
-                                    <path d="M5 12h14"/>
-                                    <path d="m13 6 6 6-6 6"/>
-                                </svg>
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </a>
+<?php
+    get_template_part(
+        'template-parts/woocommerce/category-card',
+        null,
+        [
+            'category' => $term,
+        ]
+    );
+    ?>
 
             <?php endforeach; ?>
 

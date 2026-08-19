@@ -22,7 +22,11 @@ get_header();
 
     <?php get_template_part( 'template-parts/home/carousel-product' ); ?>
 
+    <?php get_template_part( 'template-parts/home/editorial-banner' ); ?>
+
     <?php get_template_part( 'template-parts/home/featured-products' ); ?>
+
+    <?php get_template_part( 'template-parts/home/final-cta' ); ?>
 
 </main>
 

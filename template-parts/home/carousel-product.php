@@ -19,7 +19,7 @@ $query = new WP_Query( $args );
     class="py-16 md:py-20 bg-brand-white"
     dir="ltr"
 >
-    <div class="container-lux mx-auto px-4">
+    <div class="container-lux px-2 mx-auto ">
 
         <!-- Section Header -->
         <div class="flex justify-between items-end mb-10">
@@ -51,11 +51,11 @@ $query = new WP_Query( $args );
                         viewBox="0 0 24 24"
                     >
                         <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                        />
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             stroke-width="2"
+                             d="M15 19l-7-7 7-7"
+                         />
                     </svg>
                 </button>
 
@@ -70,11 +70,11 @@ $query = new WP_Query( $args );
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                     >
-                        <path
+                       <path
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M15 19l-7 7-7-7"
+                            d="M9 5l7 7-7 7"
                         />
                     </svg>
                 </button>

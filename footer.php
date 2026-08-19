@@ -76,6 +76,20 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
             </div>
 
+            <?php
+            $shop_page_id = wc_get_page_id( 'shop' );
+            
+            $product_categories = get_terms(
+                [
+                    'taxonomy'   => 'product_cat',
+                    'parent'     => 0,
+                    'hide_empty' => false,
+                    'number'     => 4,
+                    'orderby'    => 'menu_order',
+                    'order'      => 'ASC',
+                ]
+            );
+            ?>
 
             <!-- Shop -->
             <div class="space-y-4">
@@ -86,61 +100,44 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
                 <ul class="space-y-2.5 text-xs font-semibold">
 
-                    <?php if ( function_exists( 'wc_get_page_id' ) ) : 
-                        $shop_page_id = wc_get_page_id( 'shop' );
-                        if ( $shop_page_id > 0 ) :
-                    ?>
-                    <li>
-                        <a
-                            href="<?php echo esc_url( get_permalink( $shop_page_id ) ); ?>"
-                            class="text-brand-gray-500 hover:text-white transition-colors duration-200"
-                        >
-                            <?php _e( 'Tous les produits', 'ana9a' ); ?>
-                        </a>
-                    </li>
-                    <?php endif; endif; ?>
+                  <?php if ( $shop_page_id > 0 ) : ?>
 
-                    <?php 
-                    $basket_link = get_term_link( 'basket', 'product_cat' );
-                    if ( ! is_wp_error( $basket_link ) ) :
-                    ?>
-                    <li>
-                        <a
-                            href="<?php echo esc_url( $basket_link ); ?>"
-                            class="text-brand-gray-500 hover:text-white transition-colors duration-200"
-                        >
-                            <?php _e( 'Nouveautés', 'ana9a' ); ?>
-                        </a>
-                    </li>
-                    <?php endif; ?>
+                      <li>
+                          <a
+                              href="<?php echo esc_url( get_permalink( $shop_page_id ) ); ?>"
+                              class="text-brand-gray-500 hover:text-white transition-colors duration-200"
+                          >
+                              <?php _e( 'Tous les produits', 'ana9a' ); ?>
+                          </a>
+                      </li>
 
-                    <?php 
-                    $sandals_link = get_term_link( 'sandals', 'product_cat' );
-                    if ( ! is_wp_error( $sandals_link ) ) :
-                    ?>
-                    <li>
-                        <a
-                            href="<?php echo esc_url( $sandals_link ); ?>"
-                            class="text-brand-gray-500 hover:text-white transition-colors duration-200"
-                        >
-                            <?php _e( 'Collections', 'ana9a' ); ?>
-                        </a>
-                    </li>
-                    <?php endif; ?>
+                  <?php endif; ?>
 
-                    <?php 
-                    $blayegh_link = get_term_link( 'blayegh', 'product_cat' );
-                    if ( ! is_wp_error( $blayegh_link ) ) :
-                    ?>
-                    <li>
-                        <a
-                            href="<?php echo esc_url( $blayegh_link ); ?>"
-                            class="text-brand-gray-500 hover:text-white transition-colors duration-200"
-                        >
-                            <?php _e( 'Meilleures ventes', 'ana9a' ); ?>
-                        </a>
-                    </li>
-                    <?php endif; ?>
+
+                  <?php if ( ! is_wp_error( $product_categories ) && ! empty( $product_categories ) ) : ?>
+
+                      <?php foreach ( $product_categories as $category ) : ?>
+
+                          <?php
+                          $category_link = get_term_link( $category );
+
+                          if ( is_wp_error( $category_link ) ) {
+                              continue;
+                          }
+                          ?>
+
+                          <li>
+                              <a
+                                  href="<?php echo esc_url( $category_link ); ?>"
+                                  class="text-brand-gray-500 hover:text-white transition-colors duration-200"
+                              >
+                                  <?php echo esc_html( $category->name ); ?>
+                              </a>
+                          </li>
+
+                      <?php endforeach; ?>
+
+                  <?php endif; ?>
 
                 </ul>
 
@@ -282,44 +279,34 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 </footer>
 
 
+<!-- Back to Top -->
+<button
+    id="back-to-top"
+    type="button"
+    aria-label="<?php esc_attr_e( 'Retour en haut', 'ana9a' ); ?>"
+    class="back-to-top"
+>
+    <svg
+        class="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+    >
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M5 15l7-7 7 7"
+        />
+    </svg>
+</button>
+
+
 <?php wp_footer(); ?>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const scrollObserver = new IntersectionObserver(
-        (entries, observer) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-        observerOptions
-    );
-
-    document
-        .querySelectorAll('.reveal-on-scroll')
-        .forEach(element => {
-            scrollObserver.observe(element);
-        });
-
-});
-</script>
 
 </body>
 </html>

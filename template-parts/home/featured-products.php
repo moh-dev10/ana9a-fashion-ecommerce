@@ -10,15 +10,20 @@ $args = [
     'post_type'      => 'product',
     'posts_per_page' => 4,
     'post_status'    => 'publish',
-    'orderby'        => 'date',
-    'order'          => 'DESC',
+    'tax_query'      => [
+        [
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+            'terms'    => [ 'featured' ],
+        ],
+    ],
 ];
 
 $products_query = new WP_Query( $args );
 ?>
 
 <section
-    class="section-lux container-lux mx-auto px-6 py-24"
+    class="section-lux container-lux mx-auto px-6 py:20 md:py-28"
     dir="ltr"
 >
 
