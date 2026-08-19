@@ -96,7 +96,7 @@ $collections_url = home_url( '/collections/' );
                        tracking-[-0.06em]
                        max-w-3xl
                        text-brand-primary
-                       animate-reveal"
+                       animate-reveal [animation-delay:120ms]"
             >
 
                 <?php _e( 'Votre style.', 'ana9a' ); ?>
@@ -118,7 +118,7 @@ $collections_url = home_url( '/collections/' );
                        text-sm md:text-base
                        leading-relaxed
                        text-brand-text-muted
-                       animate-reveal"
+                       animate-reveal [animation-delay:240ms]"
             >
                 <?php
                  _e(
@@ -136,7 +136,7 @@ $collections_url = home_url( '/collections/' );
                        items-stretch sm:items-center
                        gap-3
                        mt-9
-                       animate-reveal"
+                       animate-reveal [animation-delay:480ms]"
             >
 
                 <!-- Primary CTA -->
@@ -226,8 +226,7 @@ $collections_url = home_url( '/collections/' );
                 <div>
 
                     <p class="text-sm font-bold text-brand-primary">
-                        <?php _e( 'Paiement à la livraison
-', 'ana9a' ); ?>
+                        <?php _e( 'Paiement à la livraison', 'ana9a' ); ?>
                     </p>
 
                     <p
@@ -254,7 +253,7 @@ $collections_url = home_url( '/collections/' );
                 <div>
 
                     <p class="text-sm font-bold text-brand-primary">
-                        7/7
+                        09h–21h
                     </p>
 
                     <p

@@ -12,10 +12,9 @@ $image_url = get_theme_file_uri( '/assets/img/editorial-banner.webp' );
 ?>
 
 <section
-    class="py-16 md:py-24 bg-brand-white"
+    class="py-16 md:py-20 bg-brand-white"
     dir="ltr"
 >
-    <div class="container-lux px-2 mx-auto">
 
         <div class="relative min-h-[520px] md:min-h-[620px] overflow-hidden">
 
@@ -84,5 +83,5 @@ $image_url = get_theme_file_uri( '/assets/img/editorial-banner.webp' );
 
         </div>
 
-    </div>
+
 </section>

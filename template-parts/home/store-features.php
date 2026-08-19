@@ -36,7 +36,7 @@ $features = [
 ?>
 
 <section
-    class="border-y border-brand-gray-100 bg-brand-white"
+    class="border-y border-brand-gray-100 bg-brand-white reveal-on-scroll"
     dir="ltr"
     aria-label="<?php esc_attr_e( 'Avantages du service', 'ana9a' ); ?>"
 >
@@ -45,8 +45,20 @@ $features = [
 
         <div class="grid grid-cols-2 lg:grid-cols-4">
 
+
             <?php foreach ( $features as $index => $feature ) : ?>
 
+            <?php
+             $border_classes = '';
+             
+             if ( $index === 1 || $index === 3 ) {
+                 $border_classes .= ' border-l border-brand-gray-100';
+             }
+             
+             if ( $index >= 2 ) {
+                 $border_classes .= ' border-t border-brand-gray-100 lg:border-t-0';
+             }
+             ?>
                 <div
                     class="
                         group
@@ -56,13 +68,7 @@ $features = [
                         text-center
                         px-5 py-9
                         md:px-8 md:py-10
-
-                        <?php
-                        echo $index > 0
-                            ? 'border-l border-brand-gray-100'
-                            : '';
-                        ?>
-
+                        <?php echo esc_attr( $border_classes ); ?>
                         transition-colors duration-300
                         hover:bg-brand-white-soft
                     "

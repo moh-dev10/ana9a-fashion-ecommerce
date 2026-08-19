@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $category = $args['category'] ?? null;
+$featured_class = $args['featured_class'] ?? '';
+
 
 if ( ! $category instanceof WP_Term ) {
     return;
@@ -48,6 +50,8 @@ $image_url = $thumbnail_id
         aspect-[4/5]
         md:aspect-auto
         md:h-full
+        <?php echo esc_attr( $featured_class ); ?>
+
     "
 >
 

@@ -28,15 +28,12 @@ $ticker_items = [
     dir="ltr"
 >
 
-    <div
-        class="flex w-max whitespace-nowrap
-               animate-[ticker_30s_linear_infinite]"
-    >
+    <div class="flex w-max whitespace-nowrap animate-ticker">
 
         <?php for ( $i = 0; $i < 2; $i++ ) : ?>
 
             <div
-                class="flex items-center
+                class="flex shrink-0 items-center
                        gap-8 md:gap-12
                        pr-8 md:pr-12"
             >

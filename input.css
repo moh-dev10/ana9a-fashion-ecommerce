@@ -34,6 +34,7 @@
   /* Borders / Grays */
   --color-brand-gray-100: #e5e5e5;
   --color-brand-gray-200: #d4d4d4;
+  --color-brand-gray-400: #a3a3a3;
   --color-brand-gray-500: #737373;
   --color-brand-gray-800: #262626;
 
@@ -62,17 +63,16 @@
      ANIMATIONS
      ========================================================= */
 
-  --animate-reveal: reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-
+--animate-reveal: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   @keyframes reveal {
     0% {
-      transform: translateY(100%);
       opacity: 0;
+      transform: translateY(24px);
     }
 
     100% {
-      transform: translateY(0);
       opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -148,6 +148,10 @@
 /* الحركات الجاهزة كـ Utilities للـ CLI */
 @utility animate-page {
   animation: var(--animate-page-fade);
+}
+
+@utility animate-ticker {
+  animation: var(--animate-ticker);
 }
 
 @utility animate-success-pop {
@@ -325,6 +329,17 @@ body {
     @apply translate-x-0 translate-y-0 shadow-none;
   }
 }
+  .btn-light {
+    @apply inline-flex items-center justify-center
+           bg-brand-white text-brand-black
+           border border-brand-white
+           px-7 py-3.5
+           text-[10px] font-bold uppercase tracking-[0.2em]
+           transition-all duration-300;
+     &:hover {
+        transform: scale(1.05);
+     }      
+}
 
   li:hover .nav-link-item::after {
     @apply w-full;
@@ -443,56 +458,41 @@ body.no-header-active .product-page-wrapper {
 
 
 /* تنسيق الـ Pagination باش يجي واعر */
+.swiper-pagination-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2rem;
+}
+
 .swiper-pagination-products .swiper-pagination-bullet {
-  @apply w-10 h-[2px]
-         rounded-none
-         bg-brand-text-muted
-         opacity-100
-         transition-all duration-300;
+    width: 6px;
+    height: 6px;
+    margin: 0 !important;
+    border-radius: 9999px;
+    background: var(--color-brand-text-muted);
+    opacity: 0.35;
+    transition: all 0.3s ease;
 }
 
 .swiper-pagination-products .swiper-pagination-bullet-active {
-  @apply bg-brand-primary w-16;
-}
-
-.back-to-top {
-    position: fixed !important;
-    right: 24px !important;
-    bottom: 24px !important;
-    z-index: 9999 !important;
-
-    width: 44px;
-    height: 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #333;
-    border-radius: 9999px;
-
-    background: #000;
-    color: #fff;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transform: translateY(12px);
-
-    transition:
-        opacity 300ms ease,
-        visibility 300ms ease,
-        transform 300ms ease;
-}
-
-.back-to-top.is-visible {
+    width: 20px;
+    background: var(--color-brand-primary);
     opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
+    border-radius: var(--radius-brand);
 }
 
-.back-to-top:hover {
-    transform: translateY(-2px);
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-ticker,
+    .animate-reveal {
+        animation: none !important;
+    }
+
+ .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }

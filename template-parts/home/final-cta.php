@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     class="py-16 md:py-24 bg-brand-black"
     dir="ltr"
 >
-    <div class="container-lux px-6 mx-auto">
+    <div class="container-lux mx-auto">
 
         <div class="max-w-3xl mx-auto text-center text-brand-white">
 
@@ -47,18 +47,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <a
                     href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>"
-                    class="btn-primary inline-flex items-center gap-3 bg-brand-white text-brand-black px-7 py-3.5 text-[10px] font-bold uppercase tracking-[0.2rem] transition-all duration-300 hover:bg-brand-gray-100"
+                    class="btn-light group"
                 >
                     <?php _e( 'Voir la boutique', 'ana9a' ); ?>
 
                     <svg
-                        class="w-4 h-4"
+                        class="w-4 h-4 group-hover:translate-x-1  transition-transform duration-300 ml-3"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         aria-hidden="true"
-                    >
-                        <path
+                        >
+                            <path
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="1.8"

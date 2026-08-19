@@ -28,7 +28,7 @@ if ( empty( $product_categories ) || is_wp_error( $product_categories ) ) {
 ?>
 
 <section
-    class="container-lux mx-auto  py-20 md:py-24"
+    class="container-lux  py-20 md:py-24 reveal-on-scroll"
     dir="ltr"
     aria-labelledby="categories-title"
 >
@@ -104,31 +104,11 @@ if ( empty( $product_categories ) || is_wp_error( $product_categories ) ) {
                md:auto-rows-[260px]"
     >
 
-        <?php foreach ( $product_categories as $index => $category ) :
+        
 
-            $category_link = get_term_link( $category );
-
-            if ( is_wp_error( $category_link ) ) {
-                continue;
-            }
-
-            $thumbnail_id = get_term_meta(
-                $category->term_id,
-                'thumbnail_id',
-                true
-            );
-
-            $image_url = $thumbnail_id
-                ? wp_get_attachment_image_url(
-                    $thumbnail_id,
-                    'large'
-                )
-                : get_template_directory_uri()
-                    . '/assets/img/placeholder.webp';
-
-            /*
-             * Make first category larger on desktop.
-             */
+ 
+        <?php foreach ( $product_categories as $index => $category ) : ?>
+            <?php
             $featured_class = ( 0 === $index )
                 ? 'md:col-span-2 md:row-span-2'
                 : '';
@@ -141,6 +121,7 @@ if ( empty( $product_categories ) || is_wp_error( $product_categories ) ) {
                 null,
                 [
                     'category' => $category,
+                    'featured_class' => $featured_class,
                 ]
             );
             ?>

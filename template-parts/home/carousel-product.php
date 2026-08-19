@@ -19,10 +19,10 @@ $query = new WP_Query( $args );
     class="py-16 md:py-20 bg-brand-white"
     dir="ltr"
 >
-    <div class="container-lux px-2 mx-auto ">
+    <div class="container-lux mx-auto ">
 
         <!-- Section Header -->
-        <div class="flex justify-between items-end mb-10">
+        <div class="flex items-end justify-between gap-4 mb-8 md:mb-10">
 
             <div class="space-y-1">
 
@@ -87,7 +87,7 @@ $query = new WP_Query( $args );
         <!-- Products Slider -->
         <div class="swiper products-swiper overflow-hidden w-full in-carousel-styles">
 
-            <div class="swiper-wrapper pb-4">
+            <div class="swiper-wrapper">
 
                 <?php if ( $query->have_posts() ) : ?>
 

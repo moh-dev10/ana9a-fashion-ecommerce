@@ -14,7 +14,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
 <footer class="bg-brand-black text-brand-white border-t border-brand-gray-800 pt-14 md:pt-16 pb-6" dir="<?php echo esc_attr( $text_dir ); ?>">
 
-    <div class="max-w-[1440px] mx-auto px-6">
+    <div class="container-lux mx-auto ">
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8 pb-10 border-b border-brand-gray-800">
 
@@ -42,7 +42,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
                     <a
                         href="#"
-                        class="text-brand-gray-300 hover:text-white transition-colors duration-300"
+                        class="text-brand-white hover:text-brand-gray-300 transition-colors duration-300"
                         aria-label="Instagram"
                     >
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
                     <a
                         href="#"
-                        class="text-brand-gray-300 hover:text-white transition-colors duration-300"
+                        class="text-brand-white  hover:text-brand-gray-300 transition-colors duration-300"
                         aria-label="TikTok"
                     >
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
                     <a
                         href="#"
-                        class="text-brand-gray-300 hover:text-white transition-colors duration-300"
+                        class="text-brand-white hover:text-brand-gray-300 transition-colors duration-300"
                         aria-label="Facebook"
                     >
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
                       <li>
                           <a
                               href="<?php echo esc_url( get_permalink( $shop_page_id ) ); ?>"
-                              class="text-brand-gray-500 hover:text-white transition-colors duration-200"
+                              class="text-brand-gray-400 hover:text-white transition-colors duration-200"
                           >
                               <?php _e( 'Tous les produits', 'ana9a' ); ?>
                           </a>
@@ -129,7 +129,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
                           <li>
                               <a
                                   href="<?php echo esc_url( $category_link ); ?>"
-                                  class="text-brand-gray-500 hover:text-white transition-colors duration-200"
+                                  class="text-brand-gray-400 hover:text-white transition-colors duration-200"
                               >
                                   <?php echo esc_html( $category->name ); ?>
                               </a>
@@ -156,7 +156,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
                     <li>
                         <a
                             href="<?php echo esc_url( home_url( '/return-policy/' ) ); ?>"
-                            class="text-brand-gray-500 hover:text-white transition-colors duration-200"
+                            class="text-brand-gray-400 hover:text-white transition-colors duration-200"
                         >
                             <?php _e( 'Échanges & Retours', 'ana9a' ); ?>
                         </a>
@@ -165,7 +165,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
                     <li>
                         <a
                             href="<?php echo esc_url( home_url( '/delivery-info/' ) ); ?>"
-                            class="text-brand-gray-500 hover:text-white transition-colors duration-200"
+                            class="text-brand-gray-400 hover:text-white transition-colors duration-200"
                         >
                             <?php _e( 'Livraison', 'ana9a' ); ?>
                         </a>
@@ -174,7 +174,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
                     <li>
                         <a
                             href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"
-                            class="text-brand-gray-500 hover:text-white transition-colors duration-200"
+                            class="text-brand-gray-400 hover:text-white transition-colors duration-200"
                         >
                             <?php _e( 'Notre histoire', 'ana9a' ); ?>
                         </a>
@@ -183,7 +183,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
                     <li>
                         <a
                             href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"
-                            class="text-brand-gray-500 hover:text-white transition-colors duration-200"
+                            class="text-brand-gray-400 hover:text-white transition-colors duration-200"
                         >
                             <?php _e( 'Nous contacter', 'ana9a' ); ?>
                         </a>
@@ -205,11 +205,11 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
                     <li class="flex flex-col gap-1">
 
-                        <span class="text-brand-gray-500">
+                        <span class="text-brand-gray-400">
                             <?php _e( 'Une question ?', 'ana9a' ); ?>
                         </span>
 
-                        <span class="text-white">
+                        <span class="text-brand-gray-200">
                             <?php _e( 'Notre équipe est là pour vous aider.', 'ana9a' ); ?>
                         </span>
 
@@ -217,11 +217,11 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
                     <li class="flex flex-col gap-1">
 
-                        <span class="text-brand-gray-500">
+                        <span class="text-brand-gray-400">
                             <?php _e( 'Disponibilité', 'ana9a' ); ?>
                         </span>
 
-                        <span class="text-white">
+                        <span class="text-brand-gray-200">
                             <?php _e( 'Samedi → Jeudi', 'ana9a' ); ?>
                         </span>
 
@@ -229,11 +229,11 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
                     <li class="flex flex-col gap-1">
 
-                        <span class="text-brand-gray-500">
+                        <span class="text-brand-gray-400">
                             <?php _e( 'Horaires', 'ana9a' ); ?>
                         </span>
 
-                        <span class="text-white">
+                        <span class="text-brand-gray-200">
                             <?php _e( '09h00 – 21h00', 'ana9a' ); ?>
                         </span>
 
@@ -247,7 +247,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 
 
         <!-- Bottom -->
-        <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-medium text-brand-gray-500 text-center">
+        <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-medium text-brand-gray-400 text-center">
 
             <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
 
@@ -267,7 +267,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
                     rel="noopener"
                     class="text-brand-white font-mono tracking-wider hover:text-brand-gray-300 transition-colors"
                 >
-                    powered by moh-dev10
+                    <?php _e( 'Créé par', 'ana9a' ); ?> moh-dev10
                 </a>
 
             </div>
@@ -279,32 +279,8 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
 </footer>
 
 
-<!-- Back to Top -->
-<button
-    id="back-to-top"
-    type="button"
-    aria-label="<?php esc_attr_e( 'Retour en haut', 'ana9a' ); ?>"
-    class="back-to-top"
->
-    <svg
-        class="h-4 w-4"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.8"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-    >
-        <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M5 15l7-7 7 7"
-        />
-    </svg>
-</button>
-
 
 <?php wp_footer(); ?>
-
 
 
 
