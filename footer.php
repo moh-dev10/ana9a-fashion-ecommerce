@@ -83,7 +83,7 @@ $text_dir = is_rtl() ? 'rtl' : 'ltr';
                 [
                     'taxonomy'   => 'product_cat',
                     'parent'     => 0,
-                    'hide_empty' => false,
+                    'hide_empty' => true,
                     'number'     => 4,
                     'orderby'    => 'menu_order',
                     'order'      => 'ASC',
